@@ -14,6 +14,11 @@ The repo ships:
 - `.opencode/agents/` — four custom subagents (`ars-researcher`, `ars-writer`, `ars-reviewer`, `ars-verifier`)
 - `scripts/` — the upstream Python verification suite (~47k lines) for citation integrity, claim-faithfulness audits, and temporal verification
 - `agents/`, `shared/` — agent definitions and reference material the skills load on demand
+- `agents/` (root) contains 3 skill-loaded agent prompts (`research_architect_agent.md`, `synthesis_agent.md`, `report_compiler_agent.md`). This is **not** the same as `.opencode/agents/` which holds the 4 OpenCode subagents.
+
+## Model hints
+
+Commands that upstream pinned to `opus` and still benefit from a stronger session model: `/ars-full`, `/ars-reviewer`, `/ars-revision-coach`. Run these with a strong model (Claude Opus, GPT-4 class) for best results.
 
 ## Subagent routing
 
@@ -32,9 +37,12 @@ Commands marked "subtask" run in a child session and return results without poll
 ## Working in this repo
 
 - **Python**: use `uv` for everything. `uv run pytest scripts/` for tests, `uv run ruff check scripts/` for lint.
+  - **Do NOT run `ruff --fix` on `scripts/`** — upstream has ~238 pre-existing lint issues (import-sort, unused-import). Fixing them creates a permanent diff against upstream. Send fixes upstream instead.
+- **TypeScript**: `npx tsc --noEmit` or `npm run typecheck` for plugin typechecking.
 - **Skill edits**: every change to a `skills/*/SKILL.md` file must preserve the YAML frontmatter (`name`, `description`, `metadata.version`) — they drive auto-discovery.
 - **Command edits**: every file in `commands/` must keep `description` and `compatibility: opencode` in frontmatter. Route to the appropriate `agent` (`build`, `ars-researcher`, `ars-writer`, `ars-reviewer`, or `ars-verifier`). Add `subtask: true` for lightweight commands.
 - **Plugin edits**: `plugins/*.ts` files import from `@opencode-ai/plugin`. Run `bun install` in `.opencode/` or the repo root after pulling.
+  - The plugin write-scope guard is **advisory** by default. Set `ARS_WRITE_GUARD=strict` to block out-of-scope writes to phase directories.
 - **Subagent edits**: `.opencode/agents/*.md` files define subagent behavior. Keep `mode: subagent` and appropriate permissions.
 - **Docs edits**: when you change anything users read (README, SETUP, QUICKSTART), the change must work with OpenCode invocation paths. Do not reintroduce Claude Code `/plugin marketplace add` examples.
 

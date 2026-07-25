@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="720" viewBox="0 0 1400 720">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#242424"/></marker>
+    <style>
+      .title { font: 700 23px Arial, sans-serif; fill: #151515; }
+      .label { font: 700 17px Arial, sans-serif; fill: #151515; }
+      .small { font: 14px Arial, sans-serif; fill: #303030; }
+      .box { stroke: #242424; stroke-width: 1.8; rx: 5; fill: #f4f4f4 !important; }
+      .arrow { stroke: #242424; stroke-width: 2.4; fill: none; marker-end: url(#arrow); }
+    </style>
+  </defs>
+  <rect width="1400" height="720" fill="#ffffff"/>
+  <text x="40" y="42" class="title">Learned Local-Response Skip Enhancement and Gated Detail Fusion</text>
+  <text x="40" y="75" class="small">LRS-E amplifies learned local variation; GDF controls shallow detail before fusion.</text>
+  <rect x="45" y="140" width="180" height="70" class="box" fill="#dbeafe"/>
+  <text x="135" y="170" text-anchor="middle" class="label">U_l</text>
+  <text x="135" y="192" text-anchor="middle" class="small">upsampled decoder</text>
+  <rect x="45" y="255" width="180" height="70" class="box" fill="#dbeafe"/>
+  <text x="135" y="285" text-anchor="middle" class="label">F_l^skip</text>
+  <text x="135" y="307" text-anchor="middle" class="small">encoder feature</text>
+  <path d="M225 175 L275 230" class="arrow"/>
+  <path d="M225 290 L275 230" class="arrow"/>
+  <rect x="275" y="195" width="180" height="70" class="box" fill="#fef3c7"/>
+  <text x="365" y="225" text-anchor="middle" class="label">Cat + Conv</text>
+  <text x="365" y="247" text-anchor="middle" class="small">1 x 1, LN, GELU</text>
+  <path d="M455 230 L505 230" class="arrow"/>
+  <rect x="505" y="195" width="180" height="70" class="box" fill="#fef3c7"/>
+  <text x="595" y="225" text-anchor="middle" class="label">SepConv</text>
+  <text x="595" y="247" text-anchor="middle" class="small">3 x 3, LN, GELU</text>
+  <path d="M685 230 L735 230" class="arrow"/>
+  <rect x="735" y="195" width="180" height="70" class="box" fill="#fee2e2"/>
+  <text x="825" y="225" text-anchor="middle" class="label">Local response</text>
+  <text x="825" y="247" text-anchor="middle" class="small">DWConv, abs, sigmoid</text>
+  <path d="M915 230 L965 230" class="arrow"/>
+  <rect x="965" y="195" width="180" height="70" class="box" fill="#dcfce7"/>
+  <text x="1055" y="225" text-anchor="middle" class="label">A_l odot Z_l</text>
+  <text x="1055" y="247" text-anchor="middle" class="small">residual enhancement</text>
+  <path d="M1145 230 L1200 230" class="arrow"/>
+  <rect x="1200" y="195" width="150" height="70" class="box" fill="#ede9fe"/>
+  <text x="1275" y="225" text-anchor="middle" class="label">D_l</text>
+  <text x="1275" y="247" text-anchor="middle" class="small">skip output</text>
+  <line x1="40" y1="370" x2="1360" y2="370" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="45" y="415" class="label">Gated Detail Fusion at half resolution</text>
+  <rect x="45" y="470" width="170" height="70" class="box" fill="#fce7f3"/>
+  <text x="130" y="500" text-anchor="middle" class="label">D1</text>
+  <text x="130" y="522" text-anchor="middle" class="small">semantic decoder</text>
+  <rect x="45" y="585" width="170" height="70" class="box" fill="#fce7f3"/>
+  <text x="130" y="615" text-anchor="middle" class="label">T_hat</text>
+  <text x="130" y="637" text-anchor="middle" class="small">detail branch</text>
+  <path d="M215 505 L275 560" class="arrow"/>
+  <path d="M215 620 L275 560" class="arrow"/>
+  <rect x="275" y="525" width="190" height="70" class="box" fill="#fef3c7"/>
+  <text x="370" y="555" text-anchor="middle" class="label">Gate network</text>
+  <text x="370" y="577" text-anchor="middle" class="small">sigmoid(Wg2(GELU(Wg1)))</text>
+  <path d="M465 560 L525 560" class="arrow"/>
+  <rect x="525" y="525" width="180" height="70" class="box" fill="#fee2e2"/>
+  <text x="615" y="555" text-anchor="middle" class="label">G odot T_hat</text>
+  <text x="615" y="577" text-anchor="middle" class="small">gated detail</text>
+  <path d="M705 560 L765 560" class="arrow"/>
+  <rect x="765" y="525" width="190" height="70" class="box" fill="#dcfce7"/>
+  <text x="860" y="555" text-anchor="middle" class="label">Concat + Conv</text>
+  <text x="860" y="577" text-anchor="middle" class="small">128-channel fused feature</text>
+  <path d="M955 560 L1015 560" class="arrow"/>
+  <rect x="1015" y="525" width="170" height="70" class="box" fill="#ede9fe"/>
+  <text x="1100" y="555" text-anchor="middle" class="label">Prediction head</text>
+  <text x="1100" y="577" text-anchor="middle" class="small">logit and sigmoid</text>
+  <text x="45" y="695" class="small">The response map and gate are internal features. They are not clinical explanations or manually supervised contour maps.</text>
+</svg>

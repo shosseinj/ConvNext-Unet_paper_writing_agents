@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="650" viewBox="0 0 1400 650">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#242424"/></marker>
+    <style>
+      .title { font: 700 23px Arial, sans-serif; fill: #151515; }
+      .label { font: 700 18px Arial, sans-serif; fill: #151515; }
+      .small { font: 15px Arial, sans-serif; fill: #303030; }
+      .box { stroke: #242424; stroke-width: 1.8; rx: 5; fill: #f4f4f4 !important; }
+      .arrow { stroke: #242424; stroke-width: 2.4; fill: none; marker-end: url(#arrow); }
+    </style>
+  </defs>
+  <rect width="1400" height="650" fill="#ffffff"/>
+  <text x="40" y="45" class="title">Reproducible dataset and evaluation workflow</text>
+  <rect x="45" y="110" width="205" height="100" class="box" fill="#dbeafe"/>
+  <text x="147" y="145" text-anchor="middle" class="label">Public datasets</text>
+  <text x="147" y="171" text-anchor="middle" class="small">Kvasir-SEG, ClinicDB</text>
+  <text x="147" y="193" text-anchor="middle" class="small">CVC-300, ColonDB, ETIS</text>
+  <path d="M250 160 L315 160" class="arrow"/>
+  <rect x="315" y="110" width="205" height="100" class="box" fill="#e0f2fe"/>
+  <text x="417" y="145" text-anchor="middle" class="label">Integrity checks</text>
+  <text x="417" y="171" text-anchor="middle" class="small">image-mask pairing</text>
+  <text x="417" y="193" text-anchor="middle" class="small">duplicates and metadata</text>
+  <path d="M520 160 L585 160" class="arrow"/>
+  <rect x="585" y="110" width="205" height="100" class="box" fill="#fef3c7"/>
+  <text x="687" y="145" text-anchor="middle" class="label">Split ledger</text>
+  <text x="687" y="171" text-anchor="middle" class="small">train / validation / test</text>
+  <text x="687" y="193" text-anchor="middle" class="small">IDs, seed, protocol ID</text>
+  <path d="M790 160 L855 160" class="arrow"/>
+  <rect x="855" y="110" width="205" height="100" class="box" fill="#dcfce7"/>
+  <text x="957" y="145" text-anchor="middle" class="label">Training</text>
+  <text x="957" y="171" text-anchor="middle" class="small">fixed config and loss</text>
+  <text x="957" y="193" text-anchor="middle" class="small">seeded checkpoints</text>
+  <path d="M1060 160 L1125 160" class="arrow"/>
+  <rect x="1125" y="110" width="205" height="100" class="box" fill="#fce7f3"/>
+  <text x="1227" y="145" text-anchor="middle" class="label">Model selection</text>
+  <text x="1227" y="171" text-anchor="middle" class="small">validation only</text>
+  <text x="1227" y="193" text-anchor="middle" class="small">best checkpoint rule</text>
+  <path d="M1227 210 L1227 300" class="arrow"/>
+  <rect x="1125" y="300" width="205" height="100" class="box" fill="#ede9fe"/>
+  <text x="1227" y="335" text-anchor="middle" class="label">Inference</text>
+  <text x="1227" y="361" text-anchor="middle" class="small">held-out same-domain</text>
+  <text x="1227" y="383" text-anchor="middle" class="small">unseen cross-domain</text>
+  <path d="M1125 350 L1060 350" class="arrow"/>
+  <rect x="855" y="300" width="205" height="100" class="box" fill="#f1f5f9"/>
+  <text x="957" y="335" text-anchor="middle" class="label">Metric ledger</text>
+  <text x="957" y="361" text-anchor="middle" class="small">mDice, mIoU, F, S, E, MAE</text>
+  <text x="957" y="383" text-anchor="middle" class="small">boundary and HD95</text>
+  <path d="M855 350 L790 350" class="arrow"/>
+  <rect x="585" y="300" width="205" height="100" class="box" fill="#e2e8f0"/>
+  <text x="687" y="335" text-anchor="middle" class="label">Uncertainty</text>
+  <text x="687" y="361" text-anchor="middle" class="small">mean +/- SD or CI</text>
+  <text x="687" y="383" text-anchor="middle" class="small">paired comparisons</text>
+  <path d="M585 350 L520 350" class="arrow"/>
+  <rect x="315" y="300" width="205" height="100" class="box" fill="#dcfce7"/>
+  <text x="417" y="335" text-anchor="middle" class="label">Tables and figures</text>
+  <text x="417" y="361" text-anchor="middle" class="small">provenance for every value</text>
+  <text x="417" y="383" text-anchor="middle" class="small">original diagrams and plots</text>
+  <path d="M315 350 L250 350" class="arrow"/>
+  <rect x="45" y="300" width="205" height="100" class="box" fill="#fef2f2"/>
+  <text x="147" y="335" text-anchor="middle" class="label">Submission gate</text>
+  <text x="147" y="361" text-anchor="middle" class="small">no XX or REF VERIFY</text>
+  <text x="147" y="383" text-anchor="middle" class="small">author sign-off</text>
+  <text x="45" y="500" class="small">External published values must remain labeled as non-direct comparisons unless their split, preprocessing, input size, checkpoint policy, and metric implementation match.</text>
+  <text x="45" y="530" class="small">The split ledger is the source of truth for all dataset counts and all result-table provenance.</text>
+</svg>

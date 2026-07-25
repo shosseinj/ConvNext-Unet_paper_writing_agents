@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1300" height="520" viewBox="0 0 1300 520">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#242424"/></marker>
+    <style>
+      .title { font: 700 23px Arial, sans-serif; fill: #151515; }
+      .label { font: 700 18px Arial, sans-serif; fill: #151515; }
+      .small { font: 15px Arial, sans-serif; fill: #303030; }
+      .box { stroke: #242424; stroke-width: 1.8; rx: 5; fill: #f4f4f4 !important; }
+      .arrow { stroke: #242424; stroke-width: 2.4; fill: none; marker-end: url(#arrow); }
+    </style>
+  </defs>
+  <rect width="1300" height="520" fill="#ffffff"/>
+  <text x="40" y="42" class="title">High-resolution Detail Branch and Gated Detail Fusion</text>
+  <rect x="40" y="195" width="150" height="76" class="box" fill="#e2e8f0"/>
+  <text x="115" y="226" text-anchor="middle" class="label">Normalized X</text>
+  <text x="115" y="250" text-anchor="middle" class="small">3 x H x W</text>
+  <path d="M190 233 L250 233" class="arrow"/>
+  <rect x="250" y="195" width="190" height="76" class="box" fill="#fce7f3"/>
+  <text x="345" y="226" text-anchor="middle" class="label">Detail Branch</text>
+  <text x="345" y="250" text-anchor="middle" class="small">stride-2 Conv + SepConv</text>
+  <path d="M440 233 L500 233" class="arrow"/>
+  <rect x="500" y="195" width="170" height="76" class="box" fill="#fce7f3"/>
+  <text x="585" y="226" text-anchor="middle" class="label">T_hat</text>
+  <text x="585" y="250" text-anchor="middle" class="small">32 ch, H/2 x W/2</text>
+  <rect x="500" y="335" width="170" height="76" class="box" fill="#dcfce7"/>
+  <text x="585" y="366" text-anchor="middle" class="label">D1</text>
+  <text x="585" y="390" text-anchor="middle" class="small">decoder, H/2 x W/2</text>
+  <path d="M670 233 L730 275" class="arrow"/>
+  <path d="M670 373 L730 295" class="arrow"/>
+  <rect x="730" y="235" width="190" height="76" class="box" fill="#fef3c7"/>
+  <text x="825" y="266" text-anchor="middle" class="label">Gate predictor</text>
+  <text x="825" y="290" text-anchor="middle" class="small">sigmoid(Wg2(GELU(Wg1)))</text>
+  <path d="M920 273 L975 233" class="arrow"/>
+  <rect x="975" y="195" width="160" height="76" class="box" fill="#fee2e2"/>
+  <text x="1055" y="226" text-anchor="middle" class="label">T_g = G odot T_hat</text>
+  <text x="1055" y="250" text-anchor="middle" class="small">gated detail</text>
+  <path d="M1135 233 L1185 285" class="arrow"/>
+  <path d="M670 373 L1185 305" class="arrow"/>
+  <rect x="1185" y="250" width="85" height="76" class="box" fill="#ede9fe"/>
+  <text x="1227" y="281" text-anchor="middle" class="label">Fuse</text>
+  <text x="1227" y="305" text-anchor="middle" class="small">128 ch</text>
+  <text x="40" y="465" class="small">The gate is learned from the concatenated decoder and detail features. It controls detail injection; it is not a clinical attention or explanation map.</text>
+</svg>

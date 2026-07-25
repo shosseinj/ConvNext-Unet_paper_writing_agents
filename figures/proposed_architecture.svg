@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <defs>
+    <marker id="arrow" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto"><path d="M0,0 L7,4 L0,8 z" fill="#242424"/></marker>
+    <style>
+      .label { font: 700 18px Arial, Helvetica, sans-serif; fill: #151515; }
+      .small { font: 15px Arial, Helvetica, sans-serif; fill: #303030; }
+      .tiny { font: 13px Arial, Helvetica, sans-serif; fill: #4a4a4a; }
+      .box { stroke: #242424; stroke-width: 1.8; rx: 5; }
+      .arrow { stroke: #242424; stroke-width: 2.4; fill: none; marker-end: url(#arrow); }
+      .skip { stroke: #555555; stroke-width: 1.8; stroke-dasharray: 7 5; fill: none; marker-end: url(#arrow); }
+    </style>
+  </defs>
+  <rect width="1600" height="900" fill="#ffffff"/>
+
+  <rect x="35" y="370" width="145" height="68" class="box" fill="#f3f3f3"/>
+  <text x="108" y="398" text-anchor="middle" class="label">Input X</text>
+  <text x="108" y="421" text-anchor="middle" class="small">3 x H x W</text>
+
+  <rect x="250" y="170" width="215" height="70" class="box" fill="#eaf1f7"/>
+  <text x="358" y="198" text-anchor="middle" class="label">ConvNeXt Stage 1: F1</text>
+  <text x="358" y="221" text-anchor="middle" class="small">96 ch, H/4 x W/4</text>
+  <rect x="250" y="285" width="215" height="70" class="box" fill="#eaf1f7"/>
+  <text x="358" y="313" text-anchor="middle" class="label">ConvNeXt Stage 2: F2</text>
+  <text x="358" y="336" text-anchor="middle" class="small">192 ch, H/8 x W/8</text>
+  <rect x="250" y="400" width="215" height="70" class="box" fill="#eaf1f7"/>
+  <text x="358" y="428" text-anchor="middle" class="label">ConvNeXt Stage 3: F3</text>
+  <text x="358" y="451" text-anchor="middle" class="small">384 ch, H/16 x W/16</text>
+  <rect x="250" y="515" width="215" height="70" class="box" fill="#eaf1f7"/>
+  <text x="358" y="543" text-anchor="middle" class="label">ConvNeXt Stage 4: F4</text>
+  <text x="358" y="566" text-anchor="middle" class="small">768 ch, H/32 x W/32</text>
+  <path d="M180 404 L215 404 L215 205 L250 205" class="arrow"/>
+  <path d="M358 240 L358 285" class="arrow"/>
+  <path d="M358 355 L358 400" class="arrow"/>
+  <path d="M358 470 L358 515" class="arrow"/>
+
+  <rect x="545" y="515" width="185" height="70" class="box" fill="#f5f5f5"/>
+  <text x="638" y="543" text-anchor="middle" class="label">Residual bottleneck: B0</text>
+  <text x="638" y="566" text-anchor="middle" class="small">768 ch, H/32 x W/32</text>
+  <path d="M465 550 L545 550" class="arrow"/>
+  <rect x="790" y="515" width="165" height="70" class="box" fill="#f5f5f5"/>
+  <text x="873" y="543" text-anchor="middle" class="label">MSC: B</text>
+  <text x="873" y="566" text-anchor="middle" class="small">768 ch, H/32 x W/32</text>
+  <path d="M730 550 L790 550" class="arrow"/>
+
+  <rect x="1015" y="400" width="235" height="70" class="box" fill="#eef3f6"/>
+  <text x="1133" y="428" text-anchor="middle" class="label">Decoder 4 + LRS-E: D4</text>
+  <text x="1133" y="451" text-anchor="middle" class="small">384 ch, H/16 x W/16</text>
+  <rect x="1015" y="285" width="235" height="70" class="box" fill="#eef3f6"/>
+  <text x="1133" y="313" text-anchor="middle" class="label">Decoder 3 + LRS-E: D3</text>
+  <text x="1133" y="336" text-anchor="middle" class="small">192 ch, H/8 x W/8</text>
+  <rect x="1015" y="170" width="235" height="70" class="box" fill="#eef3f6"/>
+  <text x="1133" y="198" text-anchor="middle" class="label">Decoder 2 + LRS-E: D2</text>
+  <text x="1133" y="221" text-anchor="middle" class="small">96 ch, H/4 x W/4</text>
+  <rect x="1015" y="75" width="235" height="58" class="box" fill="#eef3f6"/>
+  <text x="1133" y="100" text-anchor="middle" class="label">Decoder 1: D1</text>
+  <text x="1133" y="120" text-anchor="middle" class="small">XX ch, H/2 x W/2</text>
+  <path d="M955 550 L985 550 L985 435 L1015 435" class="arrow"/>
+  <path d="M1133 400 L1133 355" class="arrow"/>
+  <path d="M1133 285 L1133 240" class="arrow"/>
+  <path d="M1133 170 L1133 133" class="arrow"/>
+
+  <path d="M465 435 L960 435 L960 435 L1015 435" class="skip"/>
+  <path d="M465 320 L920 320 L920 320 L1015 320" class="skip"/>
+  <path d="M465 205 L880 205 L880 205 L1015 205" class="skip"/>
+  <text x="575" y="420" class="tiny">F3 skip</text>
+  <text x="575" y="305" class="tiny">F2 skip</text>
+  <text x="575" y="190" class="tiny">F1 skip</text>
+
+  <rect x="710" y="75" width="210" height="58" class="box" fill="#f7f4f1"/>
+  <text x="815" y="100" text-anchor="middle" class="label">Detail Branch + projection</text>
+  <text x="815" y="120" text-anchor="middle" class="small">T -> T_hat: 32 ch, H/2 x W/2</text>
+  <path d="M108 370 L108 105 L710 105" class="arrow"/>
+
+  <rect x="1310" y="75" width="195" height="58" class="box" fill="#f7f4f1"/>
+  <text x="1408" y="100" text-anchor="middle" class="label">GDF: F_fuse</text>
+  <text x="1408" y="120" text-anchor="middle" class="small">128 ch, H/2 x W/2</text>
+  <path d="M1250 104 L1310 104" class="arrow"/>
+  <path d="M920 104 L1310 104" class="arrow"/>
+
+  <rect x="1310" y="195" width="195" height="58" class="box" fill="#f3f3f3"/>
+  <text x="1408" y="220" text-anchor="middle" class="label">Head: z0_half</text>
+  <text x="1408" y="240" text-anchor="middle" class="small">1 ch, H/2 x W/2</text>
+  <path d="M1408 133 L1408 195" class="arrow"/>
+  <rect x="1310" y="300" width="195" height="58" class="box" fill="#f3f3f3"/>
+  <text x="1408" y="325" text-anchor="middle" class="label">Bilinear upsample: z0</text>
+  <text x="1408" y="345" text-anchor="middle" class="small">1 ch, H x W</text>
+  <path d="M1408 253 L1408 300" class="arrow"/>
+  <rect x="1310" y="405" width="195" height="58" class="box" fill="#f3f3f3"/>
+  <text x="1408" y="430" text-anchor="middle" class="label">Sigmoid: P</text>
+  <text x="1408" y="450" text-anchor="middle" class="small">1 ch, H x W</text>
+  <path d="M1408 358 L1408 405" class="arrow"/>
+
+  <line x1="35" y1="690" x2="1505" y2="690" stroke="#b5b5b5" stroke-width="1"/>
+  <text x="35" y="725" class="small">MSC comprises a 1 x 1 reduction, depthwise branches with dilation 1, 3, and 5, and a global pooling branch (expanded in Fig. 2).</text>
+  <text x="35" y="753" class="small">LRS-E learns local-response enhancement from each encoder-decoder fusion; it does not use Sobel maps, Fourier decomposition, explicit contour labels, or a teacher model.</text>
+  <text x="35" y="781" class="small">Training-only auxiliary heads are omitted from this inference schematic and are defined in Section 3.10.</text>
+</svg>
