@@ -21,3 +21,24 @@ I keep this repository as a working environment for experimenting with structure
 ## Academic Portfolio Note
 
 This repository is included as research tooling rather than as a claim of authorship of the underlying agent/skill framework. My original research and engineering projects are maintained in separate repositories on this profile.
+
+
+## Goal
+
+This working copy is used to study repeatable literature-review, manuscript-audit, citation, and reviewer-response procedures around an upstream academic-research toolset.
+
+## Installation
+
+The repository uses Python tooling for validation and Node.js for type checking. With `uv` and Node.js installed:
+
+```bash
+uv sync --extra dev
+npm install
+npm run typecheck
+```
+
+Consult the upstream setup documentation for installing the OpenCode skills and commands themselves; directory placement depends on the OpenCode configuration in use.
+
+## Working with the Repository
+
+Skill definitions, commands, and supporting agents follow the upstream layout. Run the repository's validation scripts and tests before modifying a workflow, and keep `NOTICE.md`, `CITATION.cff`, `LICENSE`, and contributor history intact. Local use or experimentation does not transfer authorship of the framework.
